@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "library(readr)\ntitanic <- read_csv(\"~/R/Titanic/titanic.csv\")\nView(titanic)\nplot(titanic)\nsummary(titanic)\n\n\ninstall.packages(\"dplyr\")\nlibrary(\"dplyr\", lib.loc=\"~/R/win-library/3.4\")\nlibrary(\"ggplot2\", lib.loc=\"~/R/win-library/3.4\")\ninstall.packages(\"ggthemes\")\nlibrary(\"ggthemes\", lib.loc=\"~/R/win-library/3.4\")\nlibrary(\"scales\", lib.loc=\"~/R/win-library/3.4\")\ninstall.packages(\"mice\")\nView(titanic)\nlibrary(readr)\ntitanic <- read_csv(\"~/R/Titanic/titanic.csv\")\nlibrary(readr)\ntitanic <- read_csv(\"~/R/Titanic/titanic.csv\",stringsAsFactors = F)\nView(titanic)\nstr(Titanic)\nlibrary(readr)\n\nls()\nnames(titanic)\nstr(titanic)\nhead(titanic,5)\ntail(titanic,5)\n\nlibrary(\"mice\", lib.loc=\"~/R/win-library/3.4\")\ninstall.packages(\"Hmisc\")\nlibrary(\"Hmisc\", lib.loc=\"~/R/win-library/3.4\")\n\nlabel(titanic$survived)\nlabel(titanic$name)\ndescribe(titanic)\nsummary(titanic)\npclass<-data.frame(titanic[,1])\nView(pclass)\ntitanic[1:5,]\nrm(pclass)\ndf <-titanic\nsummary(df$o=pclass)\nsummary(df$pclass)\nsummary(as.factor(df$Survived))\ndf$Survived = as.factor(df$Survived)\nsummary(df$Survived)\nsummary(as.factor(df$survived))\ndescribe(df)\nrm(df)\nDF <- titanic\ndf <-DF[,c(1,2,4:7)]\nView(df)\nView(df)\nsum(is.na(df$pclass))\nsum(is.na(df))\nbarplot(table(df$Pclass), xlab=\"Class\", ylab=\"Frequency\", main=\"Histogram of Passenger Class\")\nbarplot(table(df$pclass), xlab=\"Class\", ylab=\"Frequency\", main=\"Histogram of Passenger Class\")\ngeom_bar(table(df$pclass), xlab=\"Class\", ylab=\"Frequency\", main=\"Histogram of Passenger Class\")\ngeom_bar(table(df$pclass))\ng <- ggplot(df, aes(pclass))\ng + geom_bar()\nbarplot(table(df$pclass), xlab=\"Class\", ylab=\"Frequency\", main=\"Histogram of Passenger Class\")\ng + geom_bar()\ng <- ggplot(df, aes(pclass))\ng + geom_bar(aes(fill = drv))\ng + geom_bar(aes(fill = df$pclass))\ng + geom_bar()\nggplot(df, aes(df$survived, df$pclass)) +\ngeom_col()\nggplot(df, aes(df$pclass,df$survived)) +\ngeom_col()\nggplot(df, aes(df$survived, df$pclass)) +\ngeom_col()\ng + geom_bar()\nbarplot(table(df$pclass), xlab=\"Class\", ylab=\"Frequency\", main=\"Histogram of Passenger Class\")\nnewdf = na.omit(df)\nView(newdf)\nsum(is.na(df))\nsum(is.na(newdf))\ninstall.packages(\"gridExtra\")\nlibrary(\"gridExtra\", lib.loc=\"~/R/win-library/3.4\")\nplot1 <- qplot(newdf$age, xlab=\"Passenger Age (in years)\")\nlibrary(\"ggplot2\", lib.loc=\"~/R/win-library/3.4\")\nlibrary(\"ggthemes\", lib.loc=\"~/R/win-library/3.4\")\nplot1 <- qplot(newdf$age, xlab=\"Passenger Age (in years)\")\nplot2 <- qplot(titanic$pclass, xlab=\"Passenger Classes (by Fare)\"\ngrid.arrange(plot1, plot2, ncol=2)\nplot2 <- qplot(titanic$pclass, xlab=\"Passenger Classes (by Fare)\")\ngrid.arrange(plot1, plot2, ncol=2)\n\n#building model-randomForest for classification and regression\n\nlibrary(readr)\ntrain <- read_csv(\"~/R/Titanic/train.csv\")\ninstall.packages(\"knitr\")\ninstall.packages(\"caret\")\ninstall.packages(\"party\")\ninstall.packages(\"randomForest\")\nlibrary(\"knitr\", lib.loc=\"~/R/win-library/3.4\")\nlibrary(\"caret\", lib.loc=\"~/R/win-library/3.4\")\nlibrary(\"party\", lib.loc=\"~/R/win-library/3.4\")\nlibrary(\"randomForest\", lib.loc=\"~/R/win-library/3.4\")\n\nView(train)\ntrain$Survived <- factor(train$Survived, levels=c(0,1), labels=c('DIED', 'SURVIVED'))\npredictor <- factor(Survived)~Age+Sex+Pclass\nset.seed(1234)\ntrain_idx <- createDataPartition(train$Survived, p=0.75, list=F, times=1)\nmodel_dat <- train[train_idx,]\nval_dat <- train[-train_idx,]\npar(mfrow=c(1,1))\n\nsimple_survival_ct<- ctree(predictor, data=model_dat)\n\n#------------------------\n\nfor (year in c(2010,2011,2012,2013,2014,2015)){\n  print(paste(\"The year is\", year))\n}\n\nfor (j in 1:5)\n{\n  print(j^2)\n}\n",
+    "created" : 1505235946735.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1555741250",
+    "id" : "F2100AD8",
+    "lastKnownWriteTime" : 1505241316,
+    "last_content_update" : 1505241316185,
+    "path" : "~/R/Titanic/ExploringData/Work.R",
+    "project_path" : "Work.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
